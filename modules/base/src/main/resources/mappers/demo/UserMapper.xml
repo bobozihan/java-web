@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.hualuomoli.demo.mapper.UserMapper">
+
+	<sql id="showColumns">
+		t.id			as "id",
+		t.version		as "version",
+		t.user_code		as "userCode",
+		t.nick_name		as "nickName",
+		t.age			as "age",
+		t.address		as "address",
+		t.birth_day		as "birthDay",
+		t.salary		as "salary",
+		t.create_by		as "createBy",
+		t.create_date	as "createDate",
+		t.update_by		as "updateBy",
+		t.update_date	as "updateDate",
+		t.status		as "status",
+		t.remark		as "remark"
+	</sql>
+	
+	<sql id="queryColumns">
+		<if test="id != null and id != ''">
+			and t.id = #{id}
+		</if>
+		<if test="version != null">
+			and t.version = #{version}
+		</if>
+		<if test="userCode != null and userCode != ''">
+			and t.user_code = #{userCode}
+		</if>
+		<if test="nickName != null and nickName != ''">
+			and t.nick_name = #{nickName}
+		</if>
+		<if test="age != null">
+			and t.age = #{age}
+		</if>
+		<if test="address != null and address != ''">
+			and t.address = #{address}
+		</if>
+		<if test="birthDay != null">
+			and t.birth_day = #{birthDay}
+		</if>
+		<if test="salary != null">
+			and t.salary = #{salary}
+		</if>
+		<if test="createBy != null and createBy != ''">
+			and t.create_by = #{createBy}
+		</if>
+		<if test="createDate != null">
+			and t.create_date = #{createDate}
+		</if>
+		<if test="updateBy != null and updateBy != ''">
+			and t.update_by = #{updateBy}
+		</if>
+		<if test="updateDate != null">
+			and t.update_date = #{updateDate}
+		</if>
+		<if test="status != null">
+			and t.status = #{status}
+		</if>
+		<if test="remark != null and remark != ''">
+			and t.remark = #{remark}
+		</if>
+	</sql>
+	
+	<insert id="insert">
+	insert into t_user(
+		id,
+		version,
+		user_code,
+		nick_name,
+		age,
+		address,
+		birth_day,
+		salary,
+		create_by,
+		create_date,
+		update_by,
+		update_date,
+		status,
+		remark
+	)values(
+		#{id},
+		#{version},
+		#{userCode},
+		#{nickName},
+		#{age},
+		#{address},
+		#{birthDay},
+		#{salary},
+		#{createBy},
+		#{createDate},
+		#{updateBy},
+		#{updateDate},
+		#{status},
+		#{remark}
+	)
+	</insert>
+	
+	<insert id="batchInsert">
+	insert into t_user(
+		id,
+		version,
+		user_code,
+		nick_name,
+		age,
+		address,
+		birth_day,
+		salary,
+		create_by,
+		create_date,
+		update_by,
+		update_date,
+		status,
+		remark
+	)
+	<foreach collection="userList" open="" close="" separator="union all" item="user" index="index">
+		select 
+			#{user.id},
+			#{user.version},
+			#{user.userCode},
+			#{user.nickName},
+			#{user.age},
+			#{user.address},
+			#{user.birthDay},
+			#{user.salary},
+			#{user.createBy},
+			#{user.createDate},
+			#{user.updateBy},
+			#{user.updateDate},
+			#{user.status},
+			#{user.remark}
+	</foreach>
+	</insert>
+	
+	<update id="update">
+	update t_user
+		<set>
+			<if test="userCode != null and userCode != ''">
+				user_code = #{userCode},
+			</if>
+			<if test="nickName != null and nickName != ''">
+				nick_name = #{nickName},
+			</if>
+			<if test="age != null">
+				age = #{age},
+			</if>
+			<if test="address != null and address != ''">
+				address = #{address},
+			</if>
+			<if test="birthDay != null">
+				birth_day = #{birthDay},
+			</if>
+			<if test="salary != null">
+				salary = #{salary},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+			<if test="remark != null and remark != ''">
+				remark = #{remark},
+			</if>
+			update_by = #{updateBy},
+			update_date = #{updateDate},
+			version = #{version} + 1
+		</set>
+		<where>
+			id = #{id} and version = #{version}
+		</where>
+	</update>
+	
+	<delete id="delete">
+		delete from t_user where id = #{id}
+	</delete>
+	
+	<select id="get" resultType="com.github.hualuomoli.demo.entity.User">
+		select
+		<include refid="showColumns" />
+		from t_user t
+		where id = #{id}
+	</select>
+	
+	<select id="findList" resultType="com.github.hualuomoli.demo.entity.User">
+		select
+		<include refid="showColumns" />
+		from t_user t
+		<where>
+			<include refid="queryColumns" />
+		</where>
+		<if test="pagination!= null and pagination.orderBy != null and pagination.orderBy != ''">
+		order by pagination.orderBy
+		</if>
+	</select>
+
+</mapper>

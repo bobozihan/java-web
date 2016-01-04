@@ -1,25 +1,53 @@
 package com.github.hualuomoli.base.entity;
 
 import java.util.Date;
+import java.util.UUID;
+
+import org.apache.commons.lang3.StringUtils;
 
 import com.github.hualuomoli.base.Pagination;
 import com.github.hualuomoli.base.Paginator;
+import com.github.hualuomoli.base.constant.Status;
 
 /**
  * base entity implements Paginator and define common attribute
  * @author hualuomoli
  *
  */
-public abstract class BaseEntity implements Paginator {
+public abstract class BaseEntity extends CommonField implements Paginator {
 
 	private Pagination pagination; // pagination
 
-	private String createBy; // data create by which user
-	private Date createDate; // data create date
-	private String updateBy; // data update by which user
-	private Date updateDate; // data update date
-	private Integer status; // data's status
-	private String remark; // data remark
+	public BaseEntity() {
+	}
+
+	public final String getCurrentUser() {
+		// TODO
+		return "system";
+	}
+
+	public final Date getCurrentDate() {
+		// TODO
+		return new Date();
+	}
+
+	public void preInsert() {
+		String currentUser = getCurrentUser();
+		Date currentDate = getCurrentDate();
+
+		setCreateBy(currentUser);
+		setCreateDate(currentDate);
+		setUpdateBy(currentUser);
+		setUpdateDate(currentDate);
+		setStatus(getStatus() == null ? Status.NORMAL : getStatus());
+		setVersion(1);
+		setId(StringUtils.isEmpty(getId()) ? UUID.randomUUID().toString().replaceAll("-", "") : getId());
+	}
+
+	public void preUpdate() {
+		setUpdateBy(getCurrentUser());
+		setUpdateDate(getCurrentDate());
+	}
 
 	public Pagination getPagination() {
 		return pagination;
@@ -27,54 +55,6 @@ public abstract class BaseEntity implements Paginator {
 
 	public void setPagination(Pagination pagination) {
 		this.pagination = pagination;
-	}
-
-	public String getCreateBy() {
-		return createBy;
-	}
-
-	public void setCreateBy(String createBy) {
-		this.createBy = createBy;
-	}
-
-	public Date getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
-	public String getUpdateBy() {
-		return updateBy;
-	}
-
-	public void setUpdateBy(String updateBy) {
-		this.updateBy = updateBy;
-	}
-
-	public Date getUpdateDate() {
-		return updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public String getRemark() {
-		return remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
 	}
 
 }

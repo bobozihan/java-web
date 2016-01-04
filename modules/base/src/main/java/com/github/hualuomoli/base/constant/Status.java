@@ -1,4 +1,4 @@
-package com.github.hualuomoli.base.entity;
+package com.github.hualuomoli.base.constant;
 
 /**
  * Status

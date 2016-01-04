@@ -58,6 +58,14 @@ public class Pagination {
 		this.dataList = dataList;
 	}
 
+	public String getOrderBy() {
+		return orderBy;
+	}
+
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+	}
+
 	// other method
 	/**
 	 * 获取 Hibernate FirstResult
@@ -80,14 +88,6 @@ public class Pagination {
 	 */
 	public int getMaxResults() {
 		return getPageSize();
-	}
-
-	public String getOrderBy() {
-		return orderBy;
-	}
-
-	public void setOrderBy(String orderBy) {
-		this.orderBy = orderBy;
 	}
 
 }
