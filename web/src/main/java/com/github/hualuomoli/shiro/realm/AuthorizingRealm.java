@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.hualuomoli.shiro.exception.InvalidateLoginUserException;
 import com.github.hualuomoli.shiro.exception.NoLoginUserException;
-import com.github.hualuomoli.shiro.service.IShiroUserService;
+import com.github.hualuomoli.shiro.service.ShiroUserService;
 import com.github.hualuomoli.shiro.util.ShiroUtils;
 
 /**
@@ -29,7 +29,7 @@ public class AuthorizingRealm extends org.apache.shiro.realm.AuthorizingRealm {
 	private static final Logger logger = LoggerFactory.getLogger(AuthorizingRealm.class);
 
 	@Autowired
-	private IShiroUserService shiroUserService;
+	private ShiroUserService shiroUserService;
 
 	// get user authorization
 	@Override

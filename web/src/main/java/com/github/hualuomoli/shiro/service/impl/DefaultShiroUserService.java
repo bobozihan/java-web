@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.alibaba.druid.util.StringUtils;
 import com.github.hualuomoli.shiro.exception.InvalidateLoginUserException;
 import com.github.hualuomoli.shiro.exception.NoLoginUserException;
-import com.github.hualuomoli.shiro.service.IShiroUserService;
+import com.github.hualuomoli.shiro.service.ShiroUserService;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
@@ -19,7 +19,7 @@ import com.google.common.collect.Sets;
  *
  */
 @Service
-public class DefaultShiroUserService implements IShiroUserService {
+public class DefaultShiroUserService implements ShiroUserService {
 
 	@Override
 	public Set<String> getRoles(String userName) {

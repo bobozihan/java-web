@@ -8,7 +8,7 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import com.github.hualuomoli.shiro.exception.InvalidateLoginUserException;
 import com.github.hualuomoli.shiro.exception.NoLoginUserException;
 
-public interface IShiroUserService {
+public interface ShiroUserService {
 
 	/**
 	 * get roles by login userName
