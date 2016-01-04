@@ -55,6 +55,7 @@ public class GeneratorController {
 		return data;
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "save")
 	@ResponseBody
 	public String save(HttpServletRequest request, HttpServletResponse response) {

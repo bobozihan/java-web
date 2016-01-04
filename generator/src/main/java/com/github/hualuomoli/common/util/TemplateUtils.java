@@ -64,23 +64,32 @@ public class TemplateUtils {
 		config.setObjectWrapper(new DefaultObjectWrapper());
 		/** 获取模板,并设置编码方式，这个编码必须要与页面中的编码格式一致 */
 		Template template = config.getTemplate(templateName, templateEncoding);
-		/** 将信息输出到一个文件中，获取到数据后再将文件删除 */
-		String id = String.valueOf(System.currentTimeMillis());
-		File outFile = new File(templatePath, id);
-
-		/** 合并数据模型与模板 */
-		Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile)));
-		template.process(root, out);
-		out.flush();
-		out.close();
-
 		/** 获取输出到文件的内容 */
-		String data = FileUtils.readFileToString(outFile);
-		outFile.delete();
+		String data = getTemplateString(template, root, templatePath);
 
 		logger.debug("template data:{}", data);
 		/** 返回模板内容 */
 		return data;
+	}
+
+	private static String getTemplateString(Template template, Object root, String templatePath) throws Exception {
+		String id = String.valueOf(System.currentTimeMillis());
+		File outFile = new File(templatePath, id);
+		try {
+			/** 合并数据模型与模板 */
+			Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile)));
+			template.process(root, out);
+			out.flush();
+			out.close();
+
+			/** 获取输出到文件的内容 */
+			return FileUtils.readFileToString(outFile);
+
+		} catch (Exception e) {
+			throw new Exception(e);
+		} finally {
+			outFile.delete();
+		}
 	}
 
 }
