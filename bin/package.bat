@@ -11,7 +11,7 @@ echo.
 
 
 cd %~dp0
-cd ../demo
+cd ../web
 
 call mvn clean package -Dmaven.test.skip=true
 

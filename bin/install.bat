@@ -26,8 +26,5 @@ echo Install Base
 cd %basePath%/modules/base
 call mvn clean install -Dmaven.test.skip=true
 
-echo Install MVC
-cd %basePath%/modules/mvc
-call mvn clean install -Dmaven.test.skip=true
 
 pause
