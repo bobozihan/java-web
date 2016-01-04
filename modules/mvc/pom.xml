@@ -9,7 +9,7 @@
 		<relativePath>../../parent/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>mvc</artifactId>
+	<artifactId>java-web-mvc</artifactId>
 	<packaging>jar</packaging>
 
 
@@ -41,7 +41,7 @@
 
 		<dependency>
 			<groupId>com.github.hualuomoli</groupId>
-			<artifactId>commons</artifactId>
+			<artifactId>java-web-commons</artifactId>
 			<version>${project.parent.version}</version>
 			<scope>compile</scope>
 		</dependency>

@@ -10,7 +10,7 @@
 		<relativePath>../../parent/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>base</artifactId>
+	<artifactId>java-web-base</artifactId>
 	<packaging>jar</packaging>
 
 
@@ -52,7 +52,7 @@
 		<!-- 1、common -->
 		<dependency>
 			<groupId>com.github.hualuomoli</groupId>
-			<artifactId>commons</artifactId>
+			<artifactId>java-web-commons</artifactId>
 			<version>${project.parent.version}</version>
 			<scope>compile</scope>
 		</dependency>

@@ -10,12 +10,14 @@
         <relativePath>parent/pom.xml</relativePath>
     </parent>
 	
-	<artifactId>hualuomoli</artifactId>
+	<artifactId>java-web</artifactId>
 	<packaging>pom</packaging>
 	
 	<modules>
         <module>parent</module>		
         <module>modules</module>
+		<module>web</module>
+		<module>generator</module>
     </modules>
 
 </project>
