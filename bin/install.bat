@@ -22,6 +22,10 @@ echo Install Commons
 cd %basePath%/modules/commons
 call mvn clean install -Dmaven.test.skip=true
 
+echo Install Spring
+cd %basePath%/modules/spring
+call mvn clean install -Dmaven.test.skip=true
+
 echo Install Base
 cd %basePath%/modules/base
 call mvn clean install -Dmaven.test.skip=true
