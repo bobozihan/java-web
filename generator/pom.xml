@@ -1,43 +1,64 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.github.hualuomoli</groupId>
-		<artifactId>java-web-parent</artifactId>
-		<version>1.0.0-release</version>
-		<relativePath>../parent/pom.xml</relativePath>
-	</parent>
-
+	<groupId>com.github.hualuomoli</groupId>
 	<artifactId>java-web-generator</artifactId>
+	<version>1.0.0-release</version>
 	<packaging>war</packaging>
-
 
 	<!-- 项目属性 -->
 	<properties>
+		<jdk.version>1.7</jdk.version>
 	</properties>
 
-	<!-- 资源库定义 -->
-	<repositories>
-
-	</repositories>
-
-	<!-- 设定插件仓库 -->
-	<pluginRepositories>
-
-	</pluginRepositories>
-
-	<!-- 依赖项定义 -->
 	<dependencies>
 
 		<dependency>
 			<groupId>com.github.hualuomoli</groupId>
 			<artifactId>java-web-base</artifactId>
-			<version>${project.parent.version}</version>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>
 
+	<!-- 编译插件 -->
+	<build>
 
+		<plugins>
+
+			<!-- Compiler 插件, 设定JDK版本 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>utf8</encoding>
+					<showWarnings>true</showWarnings>
+					<compilerArguments>
+						<verbose />
+						<bootclasspath>${JAVA_HOME}\jre\lib\rt.jar;${JAVA_HOME}\jre\lib\jce.jar</bootclasspath>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+
+	</build>
 
 </project>
