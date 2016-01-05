@@ -4,7 +4,7 @@
 
 	<groupId>com.github.hualuomoli</groupId>
 	<artifactId>java-web-parent</artifactId>
-	<version>1.0.1-snapshot</version>
+	<version>1.0.1</version>
 	<packaging>pom</packaging>
 
 	<!-- 项目属性 -->
