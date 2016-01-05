@@ -21,8 +21,4 @@ echo Update project to %version%
 cd %basePath%/parent
 call mvn versions:set -DnewVersion=%version%
 
-echo 'update generator version'
-cd %basePath%/generator
-call mvn versions:set -DnewVersion=%version%
-
 pause

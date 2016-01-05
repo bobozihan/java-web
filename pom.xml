@@ -17,6 +17,7 @@
         <module>parent</module>		
         <module>modules</module>
 		<module>web</module>
+		<module>generator</module>
     </modules>
 
 </project>
