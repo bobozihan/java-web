@@ -16,9 +16,6 @@
 	<!-- 项目属性 -->
 	<properties>
 
-		<!-- Spring -->
-		<spring.version>4.0.8.RELEASE</spring.version>
-
 		<!-- Spring AOP -->
 		<aspectj.version>1.7.4</aspectj.version>
 		<cglib.version>3.1</cglib.version>

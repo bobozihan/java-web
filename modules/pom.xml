@@ -16,7 +16,8 @@
 
 	<modules>
         <module>commons</module>
-        <module>base</module>
+        <module>spring</module>
+		<module>base</module>
 		<module>activemq</module>
     </modules>
     
