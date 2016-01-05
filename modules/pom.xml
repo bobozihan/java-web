@@ -17,6 +17,7 @@
 	<modules>
         <module>commons</module>
         <module>base</module>
+		<module>activemq</module>
     </modules>
     
 </project>

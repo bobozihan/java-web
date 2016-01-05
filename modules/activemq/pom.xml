@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.github.hualuomoli</groupId>
+		<artifactId>java-web-parent</artifactId>
+		<version>1.0.1-snapshot</version>
+		<relativePath>../../parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>java-web-activemq</artifactId>
+	<packaging>jar</packaging>
+
+
+	<!-- 项目属性 -->
+	<properties>
+
+		<activemq.version>5.2.0</activemq.version>
+
+	</properties>
+
+	<!-- 资源库定义 -->
+	<repositories>
+
+	</repositories>
+
+	<!-- 设定插件仓库 -->
+	<pluginRepositories>
+
+	</pluginRepositories>
+
+	<!-- 依赖项定义 -->
+	<dependencies>
+
+		<!-- 1、common -->
+		<dependency>
+			<groupId>com.github.hualuomoli</groupId>
+			<artifactId>java-web-commons</artifactId>
+			<version>${project.parent.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- 2、ActiveMQ -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>${activemq.version}</version>
+		</dependency>
+
+	</dependencies>
+
+
+
+</project>
