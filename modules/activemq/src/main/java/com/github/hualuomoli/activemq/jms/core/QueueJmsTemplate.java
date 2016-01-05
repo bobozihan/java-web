@@ -5,7 +5,11 @@ import com.github.hualuomoli.activemq.jms.DestinationName;
 public class QueueJmsTemplate extends JmsTemplate {
 
 	public QueueJmsTemplate() {
-		super(DestinationName.QUEUE);
+		this(DestinationName.QUEUE);
+	}
+
+	public QueueJmsTemplate(String destinationName) {
+		super(destinationName);
 	}
 
 }
