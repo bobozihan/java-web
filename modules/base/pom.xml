@@ -20,12 +20,6 @@
 		<mybatis.version>3.2.8</mybatis.version>
 		<mybatis-spring.version>1.2.2</mybatis-spring.version>
 
-		<!-- Database connection pool -->
-		<druid.version>1.0.15</druid.version>
-
-		<!-- Database -->
-		<mysql.driver.version>5.1.30</mysql.driver.version>
-
 		<!-- fileupload -->
 		<commons-fileupload.version>1.3.1</commons-fileupload.version>
 
@@ -70,31 +64,6 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>${mybatis-spring.version}</version>
-		</dependency>
-
-		<!-- 4、Database connection pool -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid</artifactId>
-			<version>${druid.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.alibaba</groupId>
-					<artifactId>jconsole</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.alibaba</groupId>
-					<artifactId>tools</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		<!-- 5、Database -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.driver.version}</version>
-			<scope>runtime</scope>
 		</dependency>
 
 		<!-- 6、Spring Web -->

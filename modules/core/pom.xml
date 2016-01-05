@@ -20,6 +20,12 @@
 		<aspectj.version>1.7.4</aspectj.version>
 		<cglib.version>3.1</cglib.version>
 
+		<!-- Database connection pool -->
+		<druid.version>1.0.15</druid.version>
+
+		<!-- Database -->
+		<mysql.driver.version>5.1.30</mysql.driver.version>
+
 	</properties>
 
 	<!-- 资源库定义 -->
@@ -123,7 +129,32 @@
 			<version>${cglib.version}</version>
 		</dependency>
 
-		<!-- 4、Spring Test -->
+		<!-- 4、Database connection pool -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.alibaba</groupId>
+					<artifactId>jconsole</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.alibaba</groupId>
+					<artifactId>tools</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- 5、Database -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.driver.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- 6、Spring Test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
