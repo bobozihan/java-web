@@ -18,7 +18,7 @@
 		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"
 	default-lazy-init="true">
 
-	<description>Spring Base Configuration</description>
+	<description>Spring Core Configuration</description>
 
 	<!-- load properties -->
 	<bean class="com.github.hualuomoli.factory.config.PropertyPlaceholderConfigurer">

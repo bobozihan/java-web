@@ -7,7 +7,6 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.junit.FixMethodOrder;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
@@ -24,7 +23,7 @@ public class UserServiceTest extends SpringTestRunner {
 	private UserService userService;
 
 	@Test(sort = 1)
-	@Ignore
+	// @Ignore
 	public void testInsert() throws ParseException {
 		User user = new User();
 		user.setId("1234567890");
@@ -39,17 +38,17 @@ public class UserServiceTest extends SpringTestRunner {
 	}
 
 	@Test(sort = 2)
-	@Ignore
+	// @Ignore
 	public void testBatchInsert() {
 		List<User> userList = Lists.newArrayList();
-		for (int i = 1; i <= 1000; i++) {
+		for (int i = 1; i <= 10; i++) {
 			userList.add(new User("test" + i, "测试" + i));
 		}
 		userService.batchInsert(userList);
 	}
 
 	@Test(sort = 3)
-	@Ignore
+	// @Ignore
 	public void testUpdate() {
 		User user = new User();
 		user.setId("1234567890");
@@ -60,7 +59,7 @@ public class UserServiceTest extends SpringTestRunner {
 	}
 
 	@Test(sort = 4)
-	@Ignore
+	// @Ignore
 	public void testFindList() {
 		User user = new User();
 		user.setUserCode("hualuomoli");
@@ -69,16 +68,16 @@ public class UserServiceTest extends SpringTestRunner {
 	}
 
 	@Test(sort = 5)
-	@Ignore
+	// @Ignore
 	public void testFindPage() {
 		User user = new User();
 		user.setVersion(1);
-		Pagination pagination = userService.findPage(user, new Pagination());
+		Pagination pagination = userService.findPage(user, new Pagination(3, 5));
 		System.out.println(pagination.getCount());
 	}
 
 	@Test(sort = 6)
-	@Ignore
+	// @Ignore
 	public void testDeleteUser() {
 		String id = "1234567890";
 		userService.get(id);

@@ -52,10 +52,10 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- 2、Spring -->
+		<!-- 2、core -->
 		<dependency>
 			<groupId>com.github.hualuomoli</groupId>
-			<artifactId>java-web-spring</artifactId>
+			<artifactId>java-web-core</artifactId>
 			<version>${project.parent.version}</version>
 			<scope>compile</scope>
 		</dependency>
@@ -117,7 +117,5 @@
 		</dependency>
 
 	</dependencies>
-
-
 
 </project>
