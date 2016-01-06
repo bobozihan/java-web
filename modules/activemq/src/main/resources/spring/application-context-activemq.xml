@@ -21,8 +21,21 @@
 	<description>Spring ActiveMQ Configuration</description>
 
 	<!-- 配置JMS连接工厂 -->
-	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+	<bean id="jmsSendConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
 		<property name="brokerURL" value="failover:(tcp://localhost:61616)" />
+	</bean>
+	<bean id="jmsReceiveConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="failover:(tcp://localhost:61616)" />
+	</bean>
+
+	<!-- 连接池 -->
+	<bean id="jmsSendPooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
+		<property name="connectionFactory" ref="jmsSendConnectionFactory"></property>
+		<property name="maxConnections" value="1000"></property>
+	</bean>
+	<bean id="jmsReceivePooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
+		<property name="connectionFactory" ref="jmsReceiveConnectionFactory"></property>
+		<property name="maxConnections" value="1000"></property>
 	</bean>
 
 </beans>
