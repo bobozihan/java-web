@@ -3,7 +3,7 @@
 
 	<groupId>com.github.hualuomoli</groupId>
 	<artifactId>java-web-generator</artifactId>
-	<version>1.0.1</version>
+	<version>1.1.0-release</version>
 	<packaging>war</packaging>
 
 	<!-- 项目属性 -->
