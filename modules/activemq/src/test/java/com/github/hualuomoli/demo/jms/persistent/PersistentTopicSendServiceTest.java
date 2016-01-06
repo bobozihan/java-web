@@ -13,8 +13,9 @@ public class PersistentTopicSendServiceTest extends SpringTestRunner {
 
 	@Test
 	public void testSendMessageString() throws InterruptedException {
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 60; i++) {
 			persistentTopicSendService.sendMessage("this is text message. index is " + (i + 1));
+			Thread.sleep(1000);
 		}
 
 		// 等待listener消费完
