@@ -23,9 +23,13 @@
 	<!-- 配置JMS连接工厂 -->
 	<bean id="jmsSendConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
 		<property name="brokerURL" value="failover:(tcp://localhost:61616)" />
+		<!-- 配置权限 -->
+		<!-- <property name="userName" value="sender" /> <property name="password" value="sender" /> -->
 	</bean>
 	<bean id="jmsReceiveConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
 		<property name="brokerURL" value="failover:(tcp://localhost:61616)" />
+		<!-- 配置权限 -->
+		<!-- <property name="userName" value="receiver" /> <property name="password" value="receiver" /> -->
 	</bean>
 
 	<!-- 连接池 -->

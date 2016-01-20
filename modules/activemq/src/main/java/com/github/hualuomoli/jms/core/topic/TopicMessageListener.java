@@ -35,7 +35,7 @@ public abstract class TopicMessageListener extends MessageListener implements To
 
 	@Override
 	public ConnectionFactory getConnectionFactory() {
-		return poolConnectionService.getJmsSendPooledConnectionFactory();
+		return poolConnectionService.getJmsReceivePooledConnectionFactory();
 	}
 
 }

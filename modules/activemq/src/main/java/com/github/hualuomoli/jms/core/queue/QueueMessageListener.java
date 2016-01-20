@@ -34,7 +34,7 @@ public abstract class QueueMessageListener extends MessageListener implements Qu
 
 	@Override
 	public ConnectionFactory getConnectionFactory() {
-		return poolConnectionService.getJmsSendPooledConnectionFactory();
+		return poolConnectionService.getJmsReceivePooledConnectionFactory();
 	}
 
 }
