@@ -29,6 +29,9 @@
 		<!-- xstream -->
 		<xstream.version>1.4.7</xstream.version>
 
+		<!-- httpclient -->
+		<httpclient.verson>3.0</httpclient.verson>
+
 		<!-- freemarker -->
 		<freemarker.version>2.3.20</freemarker.version>
 
@@ -102,6 +105,14 @@
 			<artifactId>xstream</artifactId>
 			<version>${xstream.version}</version>
 		</dependency>
+
+		<!-- httpclient -->
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>${httpclient.verson}</version>
+		</dependency>
+
 
 		<!-- freemarker -->
 		<dependency>
